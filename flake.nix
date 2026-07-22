@@ -8,7 +8,19 @@
     pkgs = import nixpkgs {inherit system;};
   in {
     devShells.${system}.default = pkgs.mkShell {
-      packages = with pkgs; [typst tectonic pandoc];
+      packages = with pkgs; [
+        typst
+        tectonic
+        pandoc
+        typstyle
+        ocrmypdf
+        img2pdf
+        qpdf
+        exiftool
+        typos
+        git-lfs
+        just
+      ];
     };
   };
 }
