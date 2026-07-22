@@ -1,0 +1,35 @@
+# Types: thesis | hw | notes | fix | docs | chore | admin
+# Scope: subfolder or chapter/course, e.g. galois, topology, cubic-reciprocity
+# <type>(<scope>): <subject>
+# No more than 50 chars. #### 50 chars is here:  #
+
+# Leave the next line blank
+
+# Body - for thesis commits, note the *why* (what changed mathematically, what feedback prompted it)
+# Wrap at 72 chars. ################################## which is here:  #
+
+# The following fields are optional. Fill them out if they apply.
+# Footer:
+# Advisor:
+# Refs: [[note link]]
+#
+# Types:
+# thesis  Thesis content — new sections, argument changes, proof writeups
+# hw      Homework — new problem sets, corrections, resubmissions
+# notes   Vault content — new/updated notes, restructuring links
+# fix     Correcting an error (a wrong proof step, a typo that changes meaning, a broken build)
+# docs    README, this workflow doc, template changes
+# chore   Repo maintenance — gitignore, folder reorg, CI config
+# admin   Paperwork, proposals, committee docs
+#
+# Scope examples:
+# thesis(galois): draft section on splitting fields
+# thesis(cubic-reciprocity): rework proof of prop 3.2
+# hw(topology): submit hw04
+# hw(real-analysis): correct hw02 problem 3, resubmit
+# notes(thesis): link cubic reciprocity concept note to MOC
+# notes(topology): add lecture note 2026-08-25
+# fix(thesis): correct sign error in eisenstein criterion proof
+# docs(vault): update workflow doc with dataview section
+# chore(vault): gitignore obsidian workspace state
+# admin(proposal): add signed thesis proposal PDF
