@@ -1,0 +1,89 @@
+%-----------------------------------------------
+% DOCUMENT PREAMBLE
+%-----------------------------------------------
+
+\documentclass[12pt]{article}
+
+%call general packages for use here
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%in-document hyperlink control
+\usepackage{hyperref}
+
+%inserting image files
+%\usepackage{graphicx}
+%\graphicspath{{images/}}
+
+%margin control
+\usepackage{geometry} 
+\geometry{
+inner=1.25in,
+outer=1.25in,
+top=1.25in,
+bottom=1.25in,
+bindingoffset=.5cm,
+%showframe %uncomment to see the type block
+}
+
+%section format control
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
+\setlength{\parindent}{0pt}
+%set paragraph indentation
+
+%\usepackage[doublespacing]{setspace} %set doublespacing
+
+%improves typeset quality
+\usepackage{microtype}
+
+%-----------------------------------------------
+% BEGIN DOCUMENT
+%-----------------------------------------------
+
+\begin{document}
+
+%-----------------------------------------------
+% TITLE PAGE
+%-----------------------------------------------
+
+\thispagestyle{empty}
+\begin{center}
+\vspace*{1.5in}
+THESIS PROPOSAL\\[0.25in]
+By\\[0.5in]
+Name\\[0.25in]
+Student Identification Number\\[1.75in]
+Submitted to Northern Michigan University to propose\\
+a course of thesis work pursuant to the degree of\\[0.5in]
+MASTER OF SCIENCE IN MATHEMATICS\\[1.5in]
+Date
+
+\end{center}
+
+%-----------------------------------------------
+% THESIS PROPOSAL CONTENT
+%-----------------------------------------------
+
+\newpage
+\thispagestyle{empty}
+
+\paragraph{} Try to limit this to one page including references (at the bottom). Two pages max.
+
+\paragraph{} Hello world. $\displaystyle \int_0^\infty f(x)dx=\sqrt{\pi}$.
+
+\vfill
+
+\paragraph{} REFERENCES
+
+\paragraph{} Angstrom, Rabbit. \textit{Vampires of Used Car Lots}. Some publisher, 1968.
+\paragraph{} VanHelsing, Eleanor. \textit{Ways to Confuse a Vampire}. Some publisher, 2022.
+
+%-----------------------------------------------
+% END DOCUMENT
+%-----------------------------------------------
+
+\end{document}
