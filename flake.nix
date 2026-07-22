@@ -20,6 +20,9 @@
         typos
         git-lfs
         just
+        entr
+        biber
+        texliveFull
       ];
     };
   };
