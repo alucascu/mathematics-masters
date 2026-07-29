@@ -1,8 +1,8 @@
 \documentclass{tufte-handout}
 
-\title{An Example of the Usage of the Tufte-Handout Style\thanks{Inspired by Edward~R. Tufte!}}
+\title{Quartic Reciprocity Proof}
 
-\author[The Tufte-LaTeX Developers]{The Tufte-\LaTeX\ Developers}
+\author[Asher]{Asher Lucas-Cuddeback}
 
 %\date{28 March 2010} % without \date command, current date is supplied
 
@@ -12,6 +12,7 @@
   \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
   \graphicspath{{graphics/}} % set of paths to search for images
 \usepackage{amsmath}  % extended mathematics
+\usepackage{amsthm}
 \usepackage{booktabs} % book-quality tables
 \usepackage{units}    % non-stacked fractions and better unit spacing
 \usepackage{multicol} % multiple column layout facilities
@@ -28,18 +29,36 @@
 \newcommand{\doccls}[1]{\texttt{#1}}% document class name
 \newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
 \newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
-
+\newtheorem{thm}{Theorem}
 \begin{document}
 
 \maketitle% this prints the handout title, author, and date
 
-\begin{abstract}
-\noindent
-This document describes the Tufte handout \LaTeX\ document style.
-It also provides examples and comments on the style's use.
-Only a brief overview is presented here;
-for a complete reference, see the sample book.
-\end{abstract}
+Take \(f(x)=x^4-2\). If \(f\) splits modulo some \(p\) then the quotient of two of its roots
+must be a square root of \(-1\) in \(\mathbb{Z}/p\mathbb{Z}\). 
+
+\begin{thm}
+  The splitting behavior of a polynomial \(f(x)\) modulo \(p\) is determined by congruence 
+  conditions if and only if the roots are contained in a cyclotomic field.
+\end{thm}
+
+We can employ theorem 1 to get that \(p\equiv 1 \pmod{4}\). 
+
+
+\begin{thm}[Fermat's Theorem on Square Primes]
+  An odd prime, \(p\) can be expressed as \(p\equiv 1\pmod{4}\) if and only if
+  \(p=a^2+b^2\).
+\end{thm}
+
+By Fermat's theorem, \(p=a^2+b^2\). Without loss of generality, assume that \(a\) is even and
+\(b\) is odd. We find ourselves now in the ring of Gaussian integers. Here in \(\mathbb{Z}[i]\),
+\(p\) is not prime. Instead, we can write \(p\) as \(p=\pi\overline{\pi}\) with \(\pi=a+bi\). 
+
+\begin{thm}[2.2.3]
+  \(x^4-2\) splits modulo \(p\) if and only if \(\pi\equiv 1,3,5,7 \pmod{8\mathbb{Z}[i]}\).
+\end{thm}
+This translates to \(b=8b_0\) for integer \(b_0\) so \(p=a^2+64b_0^2\).
 
 
 \end{document}
+
