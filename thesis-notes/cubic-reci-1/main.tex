@@ -7,8 +7,8 @@
 %\geometry{showframe} % display margins for debugging page layout
 
 \usepackage{graphicx} % allow embedded images
-  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
-  \graphicspath{{graphics/}} % set of paths to search for images
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}} % set of paths to search for images
 \usepackage{amsmath}  % extended mathematics
 \usepackage{amsthm}
 \usepackage{booktabs} % book-quality tables
@@ -16,57 +16,84 @@
 \usepackage{multicol} % multiple column layout facilities
 \usepackage{lipsum}   % filler text
 \usepackage{fancyvrb} % extended verbatim environments
-  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+\fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
 
 % Standardize command font styles and environments
-\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
-\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name --
+% adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}%
+% optional command argument
 \newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
 \newcommand{\docenv}[1]{\textsf{#1}}% environment name
 \newcommand{\docpkg}[1]{\texttt{#1}}% package name
 \newcommand{\doccls}[1]{\texttt{#1}}% document class name
 \newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
-\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newenvironment{docspec}{
+\begin{quote}\noindent}{
+\end{quote}}% command specification environment
 \newtheorem{thm}{Theorem}
 \begin{document}
 
 \maketitle
 
 \begin{thm}[{\citep[Theorem 4.15]{cox_primes_2022}}]
-  The polynomial \(x^3-2\) splits modulo \(p\) if and only if \(p=a^2+27b^2\) for integers \(a\) and \(b\).
+  The polynomial \(x^3-2\) splits modulo \(p\) if and only if
+  \(p=a^2+27b^2\) for integers \(a\) and \(b\).
 \end{thm}
 \begin{proof}
-  \textbf{(\(\Rightarrow\))} Suppose \(x^3-2\) splits modulo \(p\). If \(\lambda_1, \lambda_2\) are distinct roots in
-\(\mathbb{F}_p\) then \(\lambda_1 / \lambda_2 \in\mathbb{Z}[\omega]\)
-\sidenote{Since if \(\lambda_1\) is a root of \(x^3-2\) then \(\lambda_1^3=2\). Thus, \((\lambda_1 / \lambda_2)^3=2/2=1\) giving \(\lambda_1 / \lambda_2\in\mathbb{Z}[\omega]\)}.
-This implies that the unit group, \(\mathbb{F}_p^\times\), contains an element of order 3. Which
-by theorem PLACEHOLDER gives us that 
-\[3\,|\,p-1 \implies p\equiv 1\pmod{3}.\]
-With the original assumption that 2 is a cube modulo \(p\) we can state
-\[x^3-2 \text{ splits modulo } p\iff p\equiv 1\pmod{3}\text{ and 2 is a cube modulo } p.\]
-Our prime \(p\) has this first condition \(p\equiv 1\pmod{3}\) if and only if \(p\) splits into primes in \(\mathbb{Z}[\omega]\) with
-\(p=\pi\overline{\pi}\), where \(\pi=a+b\omega\) and \(a\equiv 1\pmod{3}\).
+  \textbf{(\(\Rightarrow\))} Suppose \(x^3-2\) splits modulo \(p\).
+  If \(\lambda_1, \lambda_2\) are distinct roots in \(\mathbb{F}_p\)
+  then \(\lambda_1 / \lambda_2 \in\mathbb{Z}[\omega]\)
 
-\newthought{Recall that} an Eisenstein integer is prime when, if \(a,b\neq 0\), \(||\pi||= a^2-ab+b^2\) is an ordinary prime in \(\mathbb{Z}\).
-We can clean up this norm by exploting the fact that we are in \(\mathbb{Z}[\omega]\) to try and eliminate the \(-ab\) term.
-Here, we can, instead of using \(\pi=a+b\omega\), use \(\omega\pi=a\omega+b\omega^2=a\omega+b(-1-\omega)\) which leaves the norm unchanged\sidenote{The norm is multiplicative so \(||\omega\pi||= ||\omega||\cdot||\pi||=(\omega\overline{\omega})||\pi||=(\omega\cdot\omega^2)||\pi||=||\pi||\)}.
-This transposition continues with:
-\[a\omega+b(-1-\omega)=-b + (a-b)\omega\]
-Whereupon we rename \(A=-b\) and \(B=(a-b)\) to reobtain \(A+B\omega\). This process is the same for \(\omega^2\pi\) where we get
-\(A=b-a\) and \(B=-a\). Since \(p=\pi\overline{\pi}\) is an odd prime, \(a\) and \(b\) cannot both be even.
+  \sidenote{Since if \(\lambda_1\) is a root of \(x^3-2\) then
+    \(\lambda_1^3=2\). Thus, \((\lambda_1 / \lambda_2)^3=2/2=1\) giving
+  \(\lambda_1 / \lambda_2\in\mathbb{Z}[\omega]\)}.
 
-\[||\pi||=a^2+3b^2\]
-Using the theorem\sidenote{I don't know where this comes from.} which states
-\[2\text{ is a cube modulo }p\iff b\equiv 0\pmod{3}\]
-it becomes obvious that \(b=3b_0\). So, by simply plugging this value in, we find:
-\[p=a^2+3(3b_0)^2=a^2+27b^2\]
-as desired.
-\newline
-\textbf{(\(\Leftarrow\))} Conversely, suppose \(p = a^2+27b^2\)
-for some integers \(a, b\).
+  This implies that the unit group, \(\mathbb{F}_p^\times\), contains
+  an element of order 3. Which by theorem PLACEHOLDER gives us that
+
+  \[3\,|\,p-1 \implies p\equiv 1\pmod{3}.\]
+
+  With the original assumption that 2 is a cube modulo \(p\) we can state
+
+  \[x^3-2 \text{ splits modulo } p\iff p\equiv 1\pmod{3}\text{ and 2
+  is a cube modulo } p.\]
+
+  Our prime \(p\) has this first condition \(p\equiv 1\pmod{3}\) if
+  and only if \(p\) splits into primes in \(\mathbb{Z}[\omega]\) with
+  \(p=\pi\overline{\pi}\), where \(\pi=a+b\omega\) and \(a\equiv 1\pmod{3}\).
+
+  \newthought{Recall that} an Eisenstein integer is prime when, if
+  \(a,b\neq 0\), \(||\pi||= a^2-ab+b^2\) is an ordinary prime in \(\mathbb{Z}\).
+
+  We can clean up this norm by exploting the fact that we are in
+  \(\mathbb{Z}[\omega]\) to try and eliminate the \(-ab\) term.
+  Here, we can, instead of using \(\pi=a+b\omega\), use
+  \(\omega\pi=a\omega+b\omega^2=a\omega+b(-1-\omega)\) which leaves
+  the norm unchanged
+
+  \sidenote{The norm is multiplicative so \(||\omega\pi||=
+  ||\omega||\cdot||\pi||=(\omega\overline{\omega})||\pi||=(\omega\cdot\omega^2)||\pi||=||\pi||\)}.
+
+  This transposition continues with:
+  \[a\omega+b(-1-\omega)=-b + (a-b)\omega\]
+  Whereupon we rename \(A=-b\) and \(B=(a-b)\) to reobtain
+  \(A+B\omega\). This process is the same for \(\omega^2\pi\) where we get
+  \(A=b-a\) and \(B=-a\). Since \(p=\pi\overline{\pi}\) is an odd
+  prime, \(a\) and \(b\) cannot both be even.
+
+  \[||\pi||=a^2+3b^2\]
+  Using the theorem\sidenote{I don't know where this comes from.} which states
+  \[2\text{ is a cube modulo }p\iff b\equiv 0\pmod{3}\]
+  it becomes obvious that \(b=3b_0\). So, by simply plugging this
+  value in, we find:
+  \[p=a^2+3(3b_0)^2=a^2+27b^2\]
+  as desired.
+  \newline
+  \textbf{(\(\Leftarrow\))} Conversely, suppose \(p = a^2+27b^2\)
+  for some integers \(a, b\).
 \end{proof}
 
 \bibliographystyle{plainnat}
 \bibliography{cubic-reci}
 \end{document}
-
