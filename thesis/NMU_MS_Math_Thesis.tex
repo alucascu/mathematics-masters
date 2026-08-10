@@ -1,0 +1,240 @@
+%-----------------------------------------------
+% DOCUMENT PREAMBLE
+%-----------------------------------------------
+
+\documentclass[12pt]{article}
+
+%call general packages for use here
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%in-document hyperlink control
+\usepackage{hyperref}
+
+%inserting image files
+%\usepackage{graphicx}
+%\graphicspath{{images/}}
+
+%margin control
+\usepackage{geometry} 
+\geometry{
+inner=1in,
+outer=1in,
+top=1in,
+bottom=1in,
+bindingoffset=.5cm,
+%showframe %uncomment to see the type block
+}
+
+%section format control
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
+\setlength{\parindent}{5pt}
+%set paragraph indentation
+
+\usepackage[doublespacing]{setspace} %set doublespacing
+
+%bibliography control
+\usepackage[backend=bibtex,style=alphabetic,sorting=ynt]{biblatex}
+%\addbibresource{references.bib} %bibliography database, filetype is .bib
+
+%formatting for toc and bib headers
+\renewcommand{\contentsname}{\centering {\normalsize \textmd{TABLE OF CONTENTS}}}
+\renewcommand{\bibsetup}{\centering {\normalsize \textmd{REFERENCES}} \vspace{0.1in}}
+
+%improves typeset quality
+\usepackage{microtype}
+
+%splits chapters into separate files
+\usepackage{subfiles}
+
+%import my macros
+\input{macros/macros}
+
+%-----------------------------------------------
+% BEGIN DOCUMENT
+%-----------------------------------------------
+
+\begin{document}
+
+%-----------------------------------------------
+% TITLE PAGE
+%-----------------------------------------------
+
+\thispagestyle{empty}
+\begin{center}
+\vspace*{1.5in}
+TITLE OF THESIS\\[0.25in]
+By\\[0.25in]
+Asher Lucas-Cuddeback\\[1.25in]
+THESIS\\[0.25in]
+Submitted to\\
+Northern Michigan University\\
+In partial fulfillment of the requirements\\
+For the degree of\\[0.25in]
+MASTER OF SCIENCE\\[0.25in]
+Office of Graduate Education and Research\\[0.25in]
+May 2027
+
+\vfill
+
+$\copyright$ 2027 Northern Michigan University
+
+\end{center}
+
+%-----------------------------------------------
+% SIGNATURE APPROVAL FORM
+%-----------------------------------------------
+
+\newpage
+\thispagestyle{empty}
+\begin{center}
+SIGNATURE APPROVAL FORM\\[0.5in]
+TITLE OF THESIS\\
+\end{center}
+
+This thesis by Asher Lucas-Cuddeback is recommended for approval by the student's Thesis Committee, the Department Head of the Department of Mathematics and Computer Science, and the Dean of Graduate Education and Research.
+
+\vspace{1cm}
+
+\noindent\rule{4.3in}{0.75pt} \hspace{0.3in} Date\\[3mm]
+Committee Chair: Name, Title\\[3mm]
+
+\noindent\rule{4.3in}{0.75pt} \hspace{0.3in} Date\\[3mm]
+First Reader: Name, Title\\[3mm]
+
+\noindent\rule{4.3in}{0.75pt} \hspace{0.3in} Date\\[3mm]
+Second Reader: Name, Title\\[3mm]
+
+\noindent\rule{4.3in}{0.75pt} \hspace{0.3in} Date\\[3mm]
+Department Head: Name\\[3mm]
+
+\noindent\rule{4.3in}{0.75pt} \hspace{0.3in} Date\\[3mm]
+Dean of Graduate Education and Research: Dr. Susy Ziegler\\[3mm]
+
+%-----------------------------------------------
+% ABSTRACT
+%-----------------------------------------------
+
+\newpage
+\pagestyle{plain}
+\pagenumbering{roman}
+\begin{center}
+{ABSTRACT}\\[0.25in]
+{TITLE OF THESIS}\\[0.25in]
+By\\[0.25in]
+Name\\[0.5in]
+\end{center}
+
+The Thesis Abstract is written here (and usually kept to just this page).
+
+%-----------------------------------------------
+% DEDICATION
+%-----------------------------------------------
+
+\newpage
+\vspace*{3in}
+{DEDICATION}\\[0.5in]
+\begin{center}
+(optional) please comment out the TeX code if not using.
+\end{center}
+
+%-----------------------------------------------
+% ACKNOWLEDGEMENTS
+%-----------------------------------------------
+
+\newpage
+\begin{center}
+{ACKNOWLEDGMENTS}\\[0.5in]
+\end{center}
+(optional) please comment out the TeX code if not using.
+
+%-----------------------------------------------
+% TABLE OF CONTENTS
+%-----------------------------------------------
+
+\newpage
+\tableofcontents
+
+%-----------------------------------------------
+% LIST OF FIGURES
+%-----------------------------------------------
+
+\newpage
+\addcontentsline{toc}{section}{List of Figures} %add this to the table of contents
+\begin{center}
+{LIST OF FIGURES}\\[0.5in]
+\end{center}
+
+%-----------------------------------------------
+% SYMBOLS AND ABBREVIATIONS
+%-----------------------------------------------
+
+\newpage
+\addcontentsline{toc}{section}{Symbols and Abbreviations} %add this to the table of contents
+\begin{center}
+{SYMBOLS AND ABBREVIATIONS}\\[0.5in]
+\end{center}
+
+%the blank lines are to force double-spacing
+
+\begin{tabular}{ll}
+$a$ & acceleration\\
+& \\
+$P$ & power \\
+& \\
+$\delta$ & deviation\\
+& \\
+TBA & (T)o (B)e (A)nnounced\\	
+\end{tabular}
+
+%-----------------------------------------------
+% THESIS CONTENT
+%-----------------------------------------------
+
+\subfile{sections/introduction}
+\setcounter{page}{1}
+\pagenumbering{arabic} 
+
+\paragraph{} Hello world. $\displaystyle \int_0^\infty f(x)dx=\sqrt{\pi}$.
+
+%\cite{einstein} % example of citation insertion (see biblatex - bibliography management)
+
+\subsection{Subsection}
+Subsection here $\displaystyle \sum_{k=1}^{\infty}x^{k}$.
+
+\subsubsection{Subsubsection}
+Subsubsection here $\displaystyle \sum_{k=1}^{\infty}x^{k}$.
+
+\newpage
+
+By (\ref{ra}) we have
+
+%\cite{einstein} % example of citation insertion (see biblatex - bibliography management)
+
+\section{Section Name}
+
+\subsection{Subsection}
+Subsection here $\displaystyle \sum_{k=1}^{\infty}x^{k}$.
+
+
+\section{Section Name}
+
+\subsection{Subsection}
+Subsection here $\displaystyle \sum_{k=1}^{\infty}x^{k}$.
+
+%-----------------------------------------------
+% BIBLIOGRAPHY
+%-----------------------------------------------
+
+%\printbibliography[title={\empty}]
+%\addcontentsline{toc}{section}{References}
+
+%-----------------------------------------------
+% END DOCUMENT
+%-----------------------------------------------
+
+\end{document}
