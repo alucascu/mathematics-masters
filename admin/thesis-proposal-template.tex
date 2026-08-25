@@ -19,14 +19,14 @@
 %\graphicspath{{images/}}
 
 %margin control
-\usepackage{geometry} 
+\usepackage{geometry}
 \geometry{
-inner=1.25in,
-outer=1.25in,
-top=1.25in,
-bottom=1.25in,
-bindingoffset=.5cm,
-%showframe %uncomment to see the type block
+  inner=1.25in,
+  outer=1.25in,
+  top=1.25in,
+  bottom=1.25in,
+  bindingoffset=.5cm,
+  %showframe %uncomment to see the type block
 }
 
 %section format control
@@ -52,16 +52,15 @@ bindingoffset=.5cm,
 
 \thispagestyle{empty}
 \begin{center}
-\vspace*{1.5in}
-THESIS PROPOSAL\\[0.25in]
-By\\[0.5in]
-Name\\[0.25in]
-Student Identification Number\\[1.75in]
-Submitted to Northern Michigan University to propose\\
-a course of thesis work pursuant to the degree of\\[0.5in]
-MASTER OF SCIENCE IN MATHEMATICS\\[1.5in]
-Date
-
+  \vspace*{1.5in}
+  THESIS PROPOSAL\\[0.25in]
+  By\\[0.5in]
+  Asher Lucas-Cuddeback\\[0.25in]
+  00398526\\[1.75in]
+  Submitted to Northern Michigan University to propose\\
+  a course of thesis work pursuant to the degree of\\[0.5in]
+  MASTER OF SCIENCE IN MATHEMATICS\\[1.5in]
+  Date: 08/25/2026
 \end{center}
 
 %-----------------------------------------------
@@ -71,16 +70,85 @@ Date
 \newpage
 \thispagestyle{empty}
 
-\paragraph{} Try to limit this to one page including references (at the bottom). Two pages max.
+\paragraph{} \textbf{Motivation.} Quadratic reciprocity is one of the
+crown jewels of elementary number theory, but its higher-degree
+analogues -- cubic, quartic, and beyond -- require genuinely new
+machinery to even state cleanly, let alone prove. Gauss himself
+recognized that cubic reciprocity could not be phrased purely in
+terms of ordinary integers, and instead requires working in the ring
+of Eisenstein integers $\mathbb{Z}[\omega]$, where $\omega$ is a
+primitive cube root of unity. This thesis aims to understand this
+machinery through the modern lens of Galois and Class Field theory.
+The main drivers will be providing specific, concrete understandings
+of the concepts at hand.
 
-\paragraph{} Hello world. $\displaystyle \int_0^\infty f(x)dx=\sqrt{\pi}$.
+\paragraph{} \textbf{Background.} The cyclotomic field
+$K = \mathbb{Q}(\omega)$ has ring of integers $\mathbb{Z}[\omega]$,
+a unique factorization domain in which rational primes $p \equiv 1
+\pmod 3$ split, while $p \equiv 2 \pmod 3$ remain inert. For a prime
+$\pi \in \mathbb{Z}[\omega]$ of norm $p$, the cubic residue character
+$\left(\frac{\alpha}{\pi}\right)_3$ generalizes the Legendre symbol,
+taking values in $\{1, \omega, \omega^2\}$ according to whether
+$\alpha$ is a cubic residue mod $\pi$. The reciprocity law relates
+$\left(\frac{\alpha}{\pi}\right)_3$ to $\left(\frac{\pi}{\alpha}\right)_3$
+up to a unit correction, mirroring the classical quadratic case but
+requiring the extra structure of the Galois group
+$\mathrm{Gal}(K/\mathbb{Q}) \cong \mathbb{Z}/2\mathbb{Z}$ and its
+interaction with decomposition and inertia groups in ramified
+extensions.
 
+\paragraph{} \textbf{Solvability.} A Galois theoretic treatment of
+reciprocity at degrees \(n\geq 3\) uncovers that the traditional statement
+of quadratic reciprocity as congruences modulo an integer is the exceptional
+case. To state cubic and quartic (biquadratic in the language of
+Gauss) reciprocity
+in the case of a splitting problem for polynomials with
+\textit{solvable} Galois groups,
+we can not rely solely on congruences. For example, the polynomial
+\(f(x)=x^3-2\) splits modulo \(p\) if and only if \(p=a^2+27b^2\) for
+integer \(a,b\). The failure of the congruence understanding lies with the
+increasing complexity of the underlying Galois group. The function
+\(f\) has splitting field \( \mathbb{Q}(\sqrt[3]{2}, \omega) \). When
+we compute \( \mathrm{Gal}(\mathbb{Q}(\sqrt[3]{2}, \omega) /
+\mathbb{Q}) \) we find
+
+\[ \mathrm{Gal}(\mathbb{Q}(\sqrt[3]{2}, \omega) / \mathbb{Q}) \cong S_3\]
+
+A congruence condition arises from Galois extensions which are
+cyclic. So if we look closer, we
+can see their ghost.
+Let \(H = A_3 \trianglelefteq S_3\), the unique subgroup of order 3.
+Its fixed field is \(\mathbb{Q}(\omega)\), and since \(H\) is normal,
+\(\mathbb{Q}(\omega)/\mathbb{Q}\) is itself Galois, with
+\[ \mathrm{Gal}(\mathbb{Q}(\omega)/\mathbb{Q}) \cong S_3/A_3 \cong
+\mathbb{Z}/2\mathbb{Z}. \]
+This cyclic quotient is the ghost of a congruence condition: it is
+precisely what forces \(p \equiv 1 \pmod 3\) whenever \(f\) splits
+mod \(p\), matching the necessary condition noted in
+Example~1.1.2. But this quotient only records whether \(p\) splits in
+\(\mathbb{Q}(\omega)\); it is silent on the finer question of whether
+\(\sqrt[3]{2}\) itself becomes rational mod \(p\). That information
+lives in the non-normal subgroups of order 2 in \(S_3\), whose fixed
+fields \(\mathbb{Q}(\sqrt[3]{2})\), \(\mathbb{Q}(\omega\sqrt[3]{2})\),
+\(\mathbb{Q}(\omega^2\sqrt[3]{2})\) are conjugate to one another but
+not normal over \(\mathbb{Q}\). Because no single one of them is
+Galois over \(\mathbb{Q}\), no congruence on \(p\) alone can detect
+which case occurs; the obstruction must instead be read off inside
+\(\mathbb{Z}[\omega]\), from whether a prime above \(p\) admits a
+generator that is a perfect cube. It is exactly this refinement --
+invisible at the level of \(p \bmod 3\), but visible in the
+arithmetic of \(\mathbb{Z}[\omega]\) -- that manifests as the
+condition \(p = a^2+27b^2\) in place of a congruence.
 \vfill
 
 \paragraph{} REFERENCES
 
-\paragraph{} Angstrom, Rabbit. \textit{Vampires of Used Car Lots}. Some publisher, 1968.
-\paragraph{} VanHelsing, Eleanor. \textit{Ways to Confuse a Vampire}. Some publisher, 2022.
+\paragraph{} Cox, David A. \textit{Primes of the Form $x^2 + ny^2$:
+Fermat, Class Field Theory, and Complex Multiplication}. Wiley-
+Interscience, 1989.
+\paragraph{} Weinstein, Jared. "Reciprocity Laws and Galois
+Representations: Recent Breakthroughs." \textit{Bull. Amer. Math.
+Soc.} 53 (2016), 1--39.
 
 %-----------------------------------------------
 % END DOCUMENT
