@@ -50,7 +50,7 @@
   \(\lambda_1 / \lambda_2\in\mathbb{Z}[\omega]\)}.
 
   This implies that the unit group, \(\mathbb{F}_p^\times\), contains
-  an element of order 3. Which by theorem PLACEHOLDER gives us that
+  an element of order 3. Which by a theorem from Fermat gives us that
 
   \[3\,|\,p-1 \implies p\equiv 1\pmod{3}.\]
 
@@ -71,9 +71,8 @@
   Here, we can, instead of using \(\pi=a+b\omega\), use
   \(\omega\pi=a\omega+b\omega^2=a\omega+b(-1-\omega)\) which leaves
   the norm unchanged.
-
   \sidenote{The norm is multiplicative so \(||\omega\pi||=
-  ||\omega||\cdot||\pi||=(\omega\overline{\omega})||\pi||=(\omega\cdot\omega^2)||\pi||=||\pi||\)}.
+  ||\omega||\cdot||\pi||=(\omega\overline{\omega})||\pi||=(\omega\cdot\omega^2)||\pi||=||\pi||\)}
 
   This transposition continues with:
   \[a\omega+b(-1-\omega)=-b + (a-b)\omega\]
@@ -81,6 +80,17 @@
   \(A+B\omega\). This process is the same for \(\omega^2\pi\) where we get
   \(A=b-a\) and \(B=-a\). Since \(p=\pi\overline{\pi}\) is an odd
   prime, \(a\) and \(b\) cannot both be even.
+
+  Making this substitution against the norm equation and using
+  the reformulation that yields and even value for \( b \) allows
+
+  \[
+    ||\pi || = a^2 -ab + b^2 = a^2 - 2aB + 4B^2
+  \]
+  Which collapses to, after completing the square
+  \[
+    = (a-B)^2 + 3B^2 = A^2 + 3B^2
+  \]
 
   \[||\pi||=a^2+3b^2\]
   Using the theorem
