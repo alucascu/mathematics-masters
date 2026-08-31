@@ -1,0 +1,142 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
+
+% ---------- Header / Footer ----------
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{MA521 --- Symmetry, Geometry, and Representations}
+\rhead{Homework 1}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ---------- Theorem-like environments ----------
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+% ---------- Problem / Solution environment ----------
+% \begin{problem}[optional label] ... \end{problem} typesets the given
+% statement; \begin{solution} ... \end{solution} typesets the write-up
+% and appends a QED-style marker at the end.
+\newcounter{problemnum}
+\newenvironment{problem}[1][]{%
+  \refstepcounter{problemnum}%
+  \par\medskip\noindent\textbf{Problem \theproblemnum{#1}.}\ \itshape
+}{\par\medskip}
+
+\newenvironment{solution}{%
+  \par\noindent\textit{Solution.}\
+}{%
+  \hfill$\blacksquare$\par\bigskip
+}
+
+% ---------- Common shorthands ----------
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\dual}[1]{#1^{\ast}}
+
+\title{\vspace{-2em}MA521: Symmetry, Geometry, and Representations
+\\ \large Homework 1}
+\author{Asher Lucas-Cuddeback}
+\date{04/09/2026}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\begin{problem}
+  \
+  \begin{enumerate}[label=(\alph*)]
+    \item If $G$ and $H$ are two groups, explain why the set of group
+      homomorphisms
+      \[
+        \Hom(G, H)
+      \]
+      only carries a natural group structure when $H$ is Abelian, and
+      in that case, why $\Hom(G,H)$ becomes an Abelian group.
+
+    \item If $V$ and $W$ are two $F$-vector spaces, show that the set
+      of linear maps
+      \[
+        \Hom_F(V, W)
+      \]
+      naturally forms an $F$-vector space.
+
+    \item Show that if $X$ is any mathematical object (set, group,
+      ring, vector space, etc.), then the set of automorphisms
+      $\Aut(X)$ naturally forms a group under composition.
+
+    \item Show that if $A$ is any Abelian group, then the set of
+      endomorphisms $\End(A)$ naturally forms a ring. (What natural
+      operations of addition and multiplication would $\End(A)$ carry?)
+  \end{enumerate}
+\end{problem}
+
+\begin{solution}
+  \begin{proof}[Proof of 1(a)]
+    Let \( f,g\in \Hom(G,H) \). For the group operation, select
+    the group operation within the image space such that, \( \forall a\in G\):
+    \[
+      (f\cdot g)(a)=f(a)*g(a).
+    \]
+    With the composition operation selected, we must now show that
+    the composed \( f\cdot g \) is itself a homomorphism. For this,
+    we must have, \( \forall a,b\in G \):
+    \[
+      (f\cdot g)(ab)=(f\cdot g)(a) * (f\cdot g)(b)
+    \]
+    We expand both sides
+    \[
+      f(ab)*g(ab)=f(a)*g(a)*f(b)*g(b)
+    \]
+    \[
+      f(a)*f(b)*g(a)*g(b)=f(a)*g(a)*f(b)*g(b)
+    \]
+    At this point, we are seemingly at an impasse. However, if we assert that
+    \( H \) is an abelian group and recognize \( f(x) \) as an
+    element in \( H \),
+    we can 'slide' the problematic terms past each other to obtain:
+    \[
+      f(a)*g(a)*f(b)*g(b)=f(a)*g(a)*f(b)*g(b)
+    \]
+
+  \end{proof}
+
+  \begin{proof}[Proof of 1(b)]
+    %TODO: This is essentially just lifted and elaborated on from the lecture
+  \end{proof}
+\end{solution}
+
+\begin{problem}
+  Let $V$ be a finite dimensional $F$-vector space. Recall that the
+  dual space of $V$ is the space $\dual{V} = \Hom_F(V, F)$.
+
+  Explain why $\dual{(\dual{V})}$ is naturally isomorphic to $V$.
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\end{document}
