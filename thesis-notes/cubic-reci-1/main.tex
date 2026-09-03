@@ -31,6 +31,8 @@
 \newenvironment{docspec}{
 \begin{quote}\noindent}{
 \end{quote}}% command specification environment
+% Galois group: \Gal{L/K} or \Gal{L}
+\newcommand{\Gal}[1]{\operatorname{Gal}\left(#1\right)}
 \newtheorem{thm}{Theorem}
 \begin{document}
 
@@ -43,9 +45,8 @@
 \begin{proof}
   \textbf{(\(\Rightarrow\))} Suppose \(x^3-2\) splits modulo \(p\).
   If \(\lambda_1, \lambda_2\) are distinct roots in \(\mathbb{F}_p\)
-  then \(\lambda_1 / \lambda_2 \in\mathbb{Z}[\omega]\)
-
-  \sidenote{Since if \(\lambda_1\) is a root of \(x^3-2\) then
+  then \(\lambda_1 / \lambda_2 \in\mathbb{Z}[\omega]\)\sidenote{Since
+    if \(\lambda_1\) is a root of \(x^3-2\) then
     \(\lambda_1^3=2\). Thus, \((\lambda_1 / \lambda_2)^3=2/2=1\) giving
   \(\lambda_1 / \lambda_2\in\mathbb{Z}[\omega]\)}.
 
@@ -93,8 +94,7 @@
   \]
 
   \[||\pi||=a^2+3b^2\]
-  Using the theorem
-  \sidenote{I don't know where this comes from.}
+  Using the theorem\sidenote{I don't know where this comes from.}
   which states
   \[2\text{ is a cube modulo }p\iff b\equiv 0\pmod{3}\]
   it becomes obvious that \(b=3b_0\). So, by simply plugging this
@@ -102,10 +102,45 @@
   \[p=a^2+3(3b_0)^2=a^2+27b^2\]
   as desired.
   \newline
-  \textbf{(\(\Leftarrow\))} Conversely, suppose \(p = a^2+27b^2\)
-  for some integers \(a, b\).
 \end{proof}
 
+The above proof is an \emph{attempted} proof by amalgamation of
+observing the proof of this theorem from the time before class field
+theory. The proof that follows is attempt to appeal even more to Galois groups.
+
+\begin{proof}
+  The polynomial \( p(x) = x^3 - 2 \), via the fundamental theorem of
+  algebra, has three roots. Because \( p \) is a binomial equation,
+  we know that all the roots must exist as cyclic permutations of
+  one root in \( \mathbb{C} \). The roots of \( p \) are:
+  \[
+    \{ \sqrt[3]{2}, \omega\sqrt[3]{2}, \omega^2\sqrt[3]{2} \}
+  \]
+  where \( \omega \) is the third root of unity\sidenote{\(
+  \omega^3=1 \)}. The splitting field of \( p \) is plainly, then, \(
+  \mathbb{Q}(\omega, \sqrt[3]{2}) \). Examining the tower of field
+  extensions gives
+  \[
+    K=\mathbb{Q}(\omega)
+  \]
+  as a degree two and
+  \[
+    K(\sqrt[3]{2})
+  \]
+  as a degree three extension. Thus \( \Gal{\mathbb{Q}(\omega,
+  \sqrt[3]{2}) / \mathbb{Q}} \) is a group of order 6 by the splitting
+  correspondence. The automorphisms which generate \(
+  \Gal{\mathbb{Q}(\omega, \sqrt[3]{2})} \) are
+  \[
+    \begin{matrix}
+      \text{fix }\omega & \lambda \mapsto \lambda\omega \\
+      \text{fix }\lambda & \omega\mapsto\omega^2
+    \end{matrix}
+  \]
+  All of these facts add up to tell us that \(
+  \Gal{\mathbb{Q}(\omega, \sqrt[3]{2}) / \mathbb{Q}} \cong S_3 \)
+  which is a solvable group.
+\end{proof}
 \bibliographystyle{plainnat}
 \bibliography{cubic-reci}
 \end{document}
