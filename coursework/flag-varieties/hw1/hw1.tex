@@ -49,6 +49,9 @@
 \newcommand{\Hom}{\operatorname{Hom}}
 \newcommand{\Aut}{\operatorname{Aut}}
 \newcommand{\End}{\operatorname{End}}
+\newcommand{\Iso}{\operatorname{Iso}}
+\newcommand{\Span}{\operatorname{span}}
+\newcommand{\Dim}{\operatorname{dim}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -124,19 +127,146 @@
   \end{proof}
 
   \begin{proof}[Proof of 1(b)]
-    %TODO: This is essentially just lifted and elaborated on from the lecture
+    For \( \Hom_F(V, W) \) to be a natural vector space, then \(
+    \forall v\in V \) we must be able to define
+    a vector addition and scalar multiplication operation which
+    respects the vector space definitions. Let \( f, g \in
+    \Hom_F(V,W) \) and \( \lambda \in F \), define
+    \[
+      (f + g)(v) = f(v) + g(v) \\
+      \text{and} \\
+      (\lambda f)(v) = \lambda f(v)
+    \]
+    The map \( (f + g) \) is linear since \( \forall v, w \in V \),
+    \( \lambda\in F \)
+    \begin{align*}
+      (\lambda f + g)(v) &= (\lambda f)(v) + g(v) \\
+      &= \lambda f(v) + g(v)
+    \end{align*}
+    thus \( (\lambda f + g) \in \Hom_F(V, W) \) and \( \Hom_F(V,W) \)
+    is a vector space.
   \end{proof}
+
+  \begin{proof}[Proof of 1(c)]
+    The set of automorphisms is defined as \( \Aut (X) = \Iso(X, X)
+    \). As a consequence, for any object \( x\in X \) and
+    automorphism, \( f\in\Aut(X) \) we have:
+    \[
+      f(x)\in X
+    \]
+    Which allows us to select function composition as the composition
+    operation in \( \Aut(X) \). This means that \( f,g\in \Aut(X) \)
+    \[
+      (f\cdot g)(x) = f(g(x)).
+    \]
+    We can now go through the checks to validate the group nature
+    \begin{enumerate}
+      \item Identity: Let \( 1\in \Aut(X) \) with \( 1(x) = x \)
+      \item Closure: We get this property for free since all elements
+        are automorphisms
+      \item Inverses: since \( f\in\Aut(X) \), by definition, \(
+        \exists f^{-1} \in \Aut(X) \) such that \( f^{-1}(f(x)) = x \)
+      \item Associativity: let \( f,g,h \in \Aut(X) \).
+        \begin{align*}
+          ((f \cdot g) \cdot h)(x) &= (f\cdot g) (h(x)) \\
+          &= f(g(h(x)))
+        \end{align*}
+        and
+        \begin{align*}
+          (f\cdot (g \cdot h))(x) &= f \cdot g(h(x)) \\
+          &= f(g(h(x)))
+        \end{align*}
+    \end{enumerate}
+    And so \( \Aut(X) \) is a group under function composition.
+  \end{proof}
+
+  \begin{proof}[Proof of 1(d)]
+    Recall one of the 'cheating' ways to define a ring: a ring is a
+    set, \( R \) equipped with 'addition' and 'multiplication'
+    operations which interact via the distributive law. These
+    operations must meet the following criteria
+    \begin{enumerate}
+      \item \((R, +)\) forms an abelian group.
+      \item \( (R, \cdot) \) forms a semigroup (a group without inverses)
+      \item \( \forall a,b,c,d\in R \), \( (a+b)\cdot(c+d)= ac + ad + bc + cd \)
+    \end{enumerate}
+    For criterion 1. we can reuse the result from part (a). Let \(
+    (A, +) \) be an abelian group under \( + \). \( \End(A)=\Hom(A,A)
+    \) so \( \forall a \in A \), \( f\in\End(A) \) we have \( f(a)\in
+    A \). Thus, \( \End(A) \) inherits the abelian nature of \( A \) if
+    \[
+      (f + g)(a) = f(a) + g(a)
+    \]
+    since \( f(a),g(a)\in A \) and \( f,g\in\Hom(A,A) \). For
+    criterion 2. we select the 'multiplication' operation to be
+    function composition. We can again reuse results since we have
+    already proved that function composition is associative in part
+    (c). That only leaves closure and identity. Closure is easy since
+    \( A \) is already closed:
+    \[
+      (f\cdot g)(a) = f(g(a)).
+    \]
+    And since \( g(a)\in A \), \( f(g(a))\in A \). As for identity,
+    define the identity element to be the same as in part (c).
+    \[
+      (1\cdot f)(a) = f(a).
+    \]
+    Finally, we must show that the distributive law holds. Let \(
+    i,j,k,l\in \End(A) \) and \( a \in A \).
+    \begin{align*}
+      ((i + j) \cdot (k + l))(a) &= (i + j)(k(a) + l(a)) \\
+      &= i(k(a) + l(a)) + j(k(a) + l(a)) \\
+      &= i(k(a)) + i(l(a)) + j(k(a)) + j(l(a)) \\
+      &= (i\cdot k)(a) + (i\cdot l)(a) + (j\cdot k)(a) + (j\cdot l)(a) \\
+      &= (i\cdot k + i\cdot l + j\cdot k + j\cdot l)(a)
+    \end{align*}
+    which is the desired result, and we are done.
+  \end{proof}
+
 \end{solution}
 
 \begin{problem}
   Let $V$ be a finite dimensional $F$-vector space. Recall that the
-  dual space of $V$ is the space $\dual{V} = \Hom_F(V, F)$.
-
-  Explain why $\dual{(\dual{V})}$ is naturally isomorphic to $V$.
+  dual space of $V$ is the space: \[\dual{V} = \Hom_F(V, F).\]
+  Explain why \((V^*)^*\) is naturally isomorphic to $V$.
 \end{problem}
 
 \begin{solution}
-
+  Let \( v\in V \) and \( f\in V^* \). Given that \( V^*\cong \Hom(V,
+  F) \), we know that \( f \) must respect the structure of \( V \).
+  Define the map
+  \[
+    \begin{matrix}
+      V \times \dual{V} \to V^{**} \\
+      (v, f) \mapsto f(v)
+    \end{matrix}
+  \]
+  Thus,
+  \[
+    \begin{matrix}
+      v\mapsto(f\mapsto f(v)) \\
+      V\to V^{ ** }
+    \end{matrix}
+  \]
+  which we must now simply show that this map is invertible for it to
+  be an isomorphism. Unfortunately, at this point we must acknowledge
+  that we can choose a basis for \( V \). Let \( \dim_F(V) = n\)
+  \[
+    \begin{matrix}
+      V=\Span_F(e_1, \dots, e_n) \\
+      V^*=\Span_F(\epsilon_1, \dots, \epsilon_n)
+    \end{matrix}
+  \]
+  Since we select
+  \[
+    \epsilon_i(e_j)=
+    \begin{cases}1 & \text{if } i=j \\ 0 & \text{if } i\neq j
+    \end{cases}
+  \]
+  Since the dual space is a vector space, the dual of the dual simply
+  consists of the maps which re-associates the scalar 1
+  with the basis vectors in \( V \). Thus, \(
+  \Dim_F(V^{**})=n=\Dim_F(V) \) so \( V\cong V^{**} \).
 \end{solution}
 
 \end{document}
