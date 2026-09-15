@@ -56,6 +56,10 @@
           img2pdf
           qpdf
           exiftool
+
+          # Sagemath needs an override to skip tests because they take
+          # FOREVER. It's not worth re-running it.
+          (sage.override {requireSageTests = false;})
         ];
 
         TEXINPUTS = "./tex//:";
