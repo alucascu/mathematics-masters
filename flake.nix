@@ -62,7 +62,7 @@
           (sage.override {requireSageTests = false;})
         ];
 
-        TEXINPUTS = "./tex//:";
+        TEXINPUTS = "./packages/tex//:";
       };
     });
 }

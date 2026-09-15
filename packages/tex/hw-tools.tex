@@ -1,0 +1,67 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{hwtools}[Homework problem/solution
+environments]
+
+% Dependencies:
+\RequirePackage{amsmath,amssymb,amsthm}
+\RequirePackage{enumitem}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{comment}
+\RequirePackage{xcolor}
+
+% Package options:
+%   \usepackage[solutions]{hwtools}    (default) full write-up
+%   \usepackage[nosolutions]{hwtools}  solutions stripped
+\newif\ifhwtools@solutions
+\hwtools@solutionstrue
+\DeclareOption{solutions}{\hwtools@solutionstrue}
+\DeclareOption{nosolutions}{\hwtools@solutionsfalse}
+\ProcessOptions\relax
+
+% Problem environment — one box per numbered problem, auto-numbered.
+% Optional arg is a subtitle, e.g. \begin{problem}[Dual spaces]
+\newcounter{problemcounter}
+\newtcolorbox{problembox}[1][]{
+  enhanced, breakable,
+  colback=blue!3, colframe=blue!45!black,
+  boxrule=0.6pt, arc=2pt,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  before skip=14pt, after skip=6pt,
+  title={\refstepcounter{problemcounter}Problem \theproblemcounter%
+  \if\relax\detokenize{#1}\relax\else\ --- #1\fi},
+  fonttitle=\bfseries,
+  coltitle=blue!45!black, colbacktitle=blue!3,
+  boxed title style={boxrule=0pt, frame hidden},
+  attach boxed title to top left={yshift=-2pt, xshift=8pt},
+}
+\newenvironment{problem}[1][]{
+\begin{problembox}[#1]}{
+\end{problembox}}
+
+% Multi-part statements/solutions: (a), (b), (c), ...
+\newlist{parts}{enumerate}{1}
+\setlist[parts]{label=\textbf{(\alph*)}, leftmargin=1.5em,
+itemsep=1em, topsep=4pt}
+
+% Solution environment — a left-ruled block, not a full box, so it reads as
+% a response rather than another problem. Works at problem level or nested
+% inside a \begin{parts} item, so each part's answer sits right after its
+% statement instead of being bundled at the end.
+\ifhwtools@solutions
+\newtcolorbox{solutionbox}{
+  enhanced, breakable,
+  colback=black!2, colframe=black!2,
+  borderline west={2pt}{0pt}{teal!60!black},
+  boxrule=0pt, arc=0pt, left=10pt, right=4pt, top=4pt, bottom=4pt,
+  before skip=6pt, after skip=10pt,
+}
+\specialcomment{solution}
+{
+\begin{solutionbox}\noindent{\itshape\color{teal!60!black}Solution.}\ }
+  {\hfill$\blacksquare$
+\end{solutionbox}}
+\else
+\excludecomment{solution}
+\fi
+
+\endinput
