@@ -37,6 +37,11 @@
             microtype
             biblatex
             subfiles
+            tcolorbox
+            tikzfill
+            pdfcol
+            listingsutf8
+            comment
 
             latexmk
           ]
@@ -64,7 +69,7 @@
           (sage.override {requireSageTests = false;})
         ];
 
-        TEXINPUTS = "./packages/tex//:";
+        TEXINPUTS = toString ./packages/tex + ":";
       };
     });
 }
