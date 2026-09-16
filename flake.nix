@@ -37,6 +37,8 @@
             microtype
             biblatex
             subfiles
+
+            latexmk
           ]
       );
     in {
