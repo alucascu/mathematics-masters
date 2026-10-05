@@ -1,1 +1,82 @@
+# LaTeX auxiliary files (match at any depth)
 
+## Core
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+*.dvi
+*.xdv
+
+## latexmk / synctex
+*.fdb_latexmk
+*.synctex
+*.synctex.gz
+*.synctex(busy)
+*.synctex.gz(busy)
+*.pdfsync
+
+## Bibliography (bibtex / biber / biblatex)
+*.bbl
+*.bbl-SAVE-ERROR
+*.bcf
+*.bcf-SAVE-ERROR
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+## Indices, glossaries, nomenclature
+*.idx
+*.ilg
+*.ind
+*.glo
+*.gls
+*.glg
+*.glsdefs
+*.ist
+*.acn
+*.acr
+*.alg
+*.xdy
+*.nlo
+*.nls
+*.nlg
+
+## Beamer
+*.nav
+*.pre
+*.snm
+*.vrb
+
+## Common packages
+*.thm
+*.loa
+*.lol
+*.lox
+*.brf
+*.auxlock
+*.figlist
+*.makefile
+*.maf
+*.mtc
+*.mtc[0-9]*
+*.ptc
+*.tdo
+*.upa
+*.upb
+*.pyg
+_minted*/
+*.pytxcode
+pythontex-files-*/
+
+# Office lock files (e.g. from opening a PDF in LibreOffice)
+.~lock.*#
