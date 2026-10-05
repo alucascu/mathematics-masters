@@ -1,0 +1,380 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
+
+% ---------- Header / Footer ----------
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{MA521 --- Symmetry, Geometry, and Representations}
+\rhead{Homework 1}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ---------- Theorem-like environments ----------
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+% ---------- Problem / Solution environment ----------
+% \begin{problem}[optional label] ... \end{problem} typesets the given
+% statement; \begin{solution} ... \end{solution} typesets the write-up
+% and appends a QED-style marker at the end.
+\newcounter{problemnum}
+\newenvironment{problem}[1][]{%
+  \refstepcounter{problemnum}%
+  \par\medskip\noindent\textbf{Problem \theproblemnum{#1}.}\ \itshape
+}{\par\medskip}
+
+\newenvironment{solution}{%
+  \par\noindent\textit{Solution.}\
+}{%
+  \hfill$\blacksquare$\par\bigskip
+}
+
+% ---------- Common shorthands ----------
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Iso}{\operatorname{Iso}}
+\newcommand{\Span}{\operatorname{span}}
+\newcommand{\Dim}{\operatorname{dim}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\dual}[1]{#1^{\ast}}
+\newcommand{\Herm}{\mathcal{H}}
+
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\SO}{SU}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\pf}{pf}
+
+\title{\vspace{-2em}MA521: Symmetry, Geometry, and Representations
+\\ \large Homework 3}
+\author{Asher Lucas-Cuddeback}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+% Start numbering at 6 so the first problem below is Problem 6.
+\setcounter{problemnum}{5}
+
+\begin{problem}
+  Consider the following function $H \colon V \times V \to \C$ on
+  $V = \C^2$:
+  \[
+    H\!\left(
+      \begin{bmatrix} z_1 \\ z_2
+      \end{bmatrix},
+      \begin{bmatrix} z_3 \\ z_4
+    \end{bmatrix}\right)
+    = 2\overline{z_1} z_3 - i\,\overline{z_1} z_4
+    + i\,\overline{z_2} z_3 + 2\,\overline{z_2} z_4.
+  \]
+  \begin{enumerate}[label=(\alph*)]
+    \item Explain why $H$ is a Hermitian form, and write $H$ in the form
+      $H(v,w) = v^{*} B w$, where $B$ is some $2 \times 2$ Hermitian
+      matrix.
+
+    \item Show that the underlying signature of this Hermitian form is
+      $(2,0)$, i.e.\ it is equivalent to the standard Hermitian form on
+      $\C^2$ given by:
+      \[
+        \Herm\!\left(
+          \begin{bmatrix} z_1 \\ z_2
+          \end{bmatrix},
+          \begin{bmatrix} z_3 \\ z_4
+        \end{bmatrix}\right)
+        = \overline{z_1} z_3 + \overline{z_2} z_4.
+      \]
+
+    \item Try to write down a Hermitian form on $\C^2$ that is not equal
+      to, but equivalent to, the signature $(1,1)$ form given by:
+      \[
+        \mathcal{H}\!\left(
+          \begin{bmatrix} z_1 \\ z_2
+          \end{bmatrix},
+          \begin{bmatrix} z_3 \\ z_4
+        \end{bmatrix}\right)
+        = \overline{z_1} z_3 - \overline{z_2} z_4.
+      \]
+  \end{enumerate}
+\end{problem}
+
+\begin{solution}
+  \begin{proof}[Proof of 6(a)]
+    To show that this form is Hermitian, it suffices to show that
+    \[
+      \Herm\left(
+        \begin{bmatrix}
+          z_1 \\
+          z_2
+        \end{bmatrix},
+        \begin{bmatrix}
+          z_3 \\
+          z_4
+      \end{bmatrix}\right)=\overline{
+        \Herm\left(
+          \begin{bmatrix}
+            z_3 \\
+            z_4
+          \end{bmatrix},
+          \begin{bmatrix}
+            z_1 \\
+            z_2
+        \end{bmatrix}\right)
+      }
+    \]
+    We are given:
+    \[
+      \Herm\!\left(
+        \begin{bmatrix} z_1 \\ z_2
+        \end{bmatrix},
+        \begin{bmatrix} z_3 \\ z_4
+      \end{bmatrix}\right)
+      = 2\overline{z_1} z_3 - i\,\overline{z_1} z_4
+      + i\,\overline{z_2} z_3 + 2\,\overline{z_2} z_4.
+    \]
+    Thus
+    \[
+      \Herm\left(
+        \begin{bmatrix}
+          z_3 \\
+          z_4
+        \end{bmatrix},
+        \begin{bmatrix}
+          z_1 \\
+          z_2
+      \end{bmatrix}\right)= 2\overline{z_3}z_1 - i\overline{z_3}z_2
+      + i\overline{z_4}z_1 + 2\overline{z_4}z_2
+    \]
+    Taking the Hermetian conjugate of this we see that
+    \[
+      \overline{2\overline{z_3}z_1 - i\overline{z_3}z_2
+      + i\overline{z_4}z_1 + 2\overline{z_4}z_2} =
+      2\overline{z_1}z_3 + i\overline{z_2}z_3 - i\overline{z_1}z_4 +
+      2\overline{z_2}z_4
+    \]
+    Which we can rearrange to obtain our desired result
+    \[
+      = 2\overline{z_1} z_3 - i\,\overline{z_1} z_4
+      + i\,\overline{z_2} z_3 + 2\,\overline{z_2} z_4.
+    \]
+    The matrix describing this Hermetian form is
+    \[
+      \Herm\left(
+        \begin{bmatrix}
+          z_1 \\
+          z_2
+        \end{bmatrix},
+        \begin{bmatrix}
+          z_3 \\
+          z_4
+      \end{bmatrix}\right)=
+      \begin{bmatrix}
+        z_1 & z_2
+      \end{bmatrix}^*
+      \begin{bmatrix}
+        2 & -i \\
+        i & 2
+      \end{bmatrix}
+      \begin{bmatrix}
+        z_3 \\
+        z_4
+      \end{bmatrix}
+    \]
+  \end{proof}
+
+  \begin{proof}[Proof of 6(b)]
+    We can achieve this with a mildly modified version of the
+    'perform row op and the same column op' method for Bilinear
+    forms. The modification is that we will do the Hermetian
+    conjugate row op and then the column op. So
+    \[
+      \begin{bmatrix}
+        2 & -i \\
+        i & 2
+      \end{bmatrix}\xrightarrow[iC_2]{-iR_2}
+      \begin{bmatrix}
+        2 & 1 \\
+        1 & 2
+      \end{bmatrix}\xrightarrow[2R_2 - R_1]{2C_2-C_1}
+      \begin{bmatrix}
+        2 & 0 \\
+        0 & 5
+      \end{bmatrix}\xrightarrow[\frac{1}{\sqrt{2}}R_1]{\frac{1}{\sqrt{2}}C_1}
+      \begin{bmatrix}
+        1 & 0 \\
+        0 & 5
+      \end{bmatrix}\xrightarrow[\frac{1}{\sqrt{5}}R_2]{\frac{1}{\sqrt{5}}C_2}
+      \begin{bmatrix}
+        1 & 0 \\
+        0 & 1
+      \end{bmatrix}
+    \]
+    Which is the matrix describing
+    \[
+      \Herm\!\left(
+        \begin{bmatrix} z_1 \\ z_2
+        \end{bmatrix},
+        \begin{bmatrix} z_3 \\ z_4
+      \end{bmatrix}\right)
+      = \overline{z_1} z_3 + \overline{z_2} z_4.
+    \]
+  \end{proof}
+
+  \begin{proof}[Proof of 6(c)]
+    The matrix
+    \[
+      A=
+      \begin{bmatrix}
+        1 & 0 \\
+        0 & -1
+      \end{bmatrix}
+    \]
+    is the Hermetian form for which any other signature \( (1, 1) \)
+    Hermitian form must be congruent to. So we can simply do the same
+    row-column operation trick with the reverse intent. So
+    \[
+      \begin{bmatrix}
+        1 & 0 \\
+        0 & -1
+      \end{bmatrix}\xrightarrow[R_2 + R_1]{C_2 + C_1}
+      \begin{bmatrix}
+        1 & 1 \\
+        1 & -1
+      \end{bmatrix}
+    \]
+    satisfies the requirements (if in an unsatisfyingly low-effort
+    manner I'm sorry).
+  \end{proof}
+\end{solution}
+
+\begin{problem}
+  Give explicit equational descriptions of the following matrix groups.
+  \begin{enumerate}[label=(\alph*)]
+    \item $\SU(2)$
+    \item $\SU(1,1)$
+    \item $\SO_2(\C)$
+  \end{enumerate}
+\end{problem}
+
+\begin{solution}
+  \begin{proof}[Proof of 7(a)]
+    The group \( \SU(2) \) is the Unitary matrices with determinant 1. So
+    \[
+      \SU(2)=\left\{M\in \GL_2(\C)\,|\,\det(M)=1 \text{ and } M^*M=I\right\}
+    \]
+    \[
+      =\left\{
+        \begin{bmatrix}a & b \\ c & d
+        \end{bmatrix}\in \SL_2(\C)\,|\,
+        \begin{bmatrix}
+          \overline{a} &
+          \overline{c} \\
+          \overline{b} &
+          \overline{d}
+        \end{bmatrix}
+        \begin{bmatrix}
+          a & b \\ c & d
+        \end{bmatrix}=
+        \begin{bmatrix}
+          1 & 0 \\
+          0 & 1
+        \end{bmatrix}
+      \right\}
+    \]
+    \[
+      =\left\{
+        \begin{bmatrix}a & b \\ c & d
+        \end{bmatrix}\in \SL_2(\C)\,|\,
+        \begin{bmatrix}
+          \overline{a}a + \overline{c}c & \overline{a}b +
+          \overline{c}d \\ \overline{b}a + \overline{d}c &
+          \overline{b}b + \overline{d}d
+        \end{bmatrix}=
+        \begin{bmatrix}
+          1 & 0 \\
+          0 & 1
+        \end{bmatrix}
+      \right\}
+    \]
+    This can be thought of as the matrix derived from the vectors
+    \(
+      \begin{bmatrix}
+        a \\ b
+    \end{bmatrix} \) and \(
+      \begin{bmatrix}
+        c \\ d
+    \end{bmatrix} \)
+    And
+    \[
+      \Herm\!\left(v_1,v_2\right) = \overline{a} c + \overline{b} d
+    \]
+    Where we have the matrix
+    \[
+      \begin{bmatrix}
+        \Herm(v_1, v_1) & \Herm(v_1, v_2) \\
+        \Herm(v_2, v_1) & \Herm(v_2, v_2)
+      \end{bmatrix}.
+    \]
+    This representation implies that \( v_1 \) and \( v_2 \) are
+    linearly independent (since \( \Herm(v_1,v_2)=0 \))
+  \end{proof}
+
+  \begin{proof}[Proof of 7(b)]
+  \end{proof}
+
+  \begin{proof}[Proof of 7(c)]
+  \end{proof}
+\end{solution}
+
+\begin{problem}
+  \begin{enumerate}[label=(\alph*)]
+    \item Learn a bit about the Pfaffian of a skew-symmetric matrix so
+      that you can demonstrate that any matrix in $Sp_{2n}(F)$
+      necessarily has determinant $1$.
+
+    \item Argue that $Sp_{2n}(F)$ is always a subgroup of $SL_{2n}(F)$.
+
+    \item In class we saw that $Sp_2(F) = SL_2(F)$. Show that
+      $SL_{2n}(F)$ is strictly larger than $Sp_{2n}(F)$ for $n \geq 2$.
+  \end{enumerate}
+\end{problem}
+
+\begin{solution}
+  \begin{proof}[Proof of 8(a)]
+    The Pfaffian has the property \( \pf(A)^2 = \det A \)
+  \end{proof}
+
+  \begin{proof}[Proof of 8(b)]
+    Since \( \forall A \in Sp_{2n}(F)\), \( \det A = 1 \) we are
+    naturally a subset of \( \SL_{2n}(F) \). Additionally, since \(
+    \det A \neq 0 \), \( A^{-1}\in Sp_{2n}(F) \) and finally, since
+    the determinant is multiplicative, \( \forall A,B\in
+    Sp_{2n}(F),\,\det (AB)=1 \) so of course \( AB\in Sp_{2n}(F) \).
+  \end{proof}
+
+  \begin{proof}[Proof of 8(c)]
+  \end{proof}
+\end{solution}
+
+\end{document}
