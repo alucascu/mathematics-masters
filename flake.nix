@@ -48,8 +48,8 @@
       );
     in {
       devShells.default = pkgs.mkShell {
+        name = "math-masters";
         buildInputs = [tex pkgs.python3];
-
         packages = with pkgs; [
           typst
           pandoc
